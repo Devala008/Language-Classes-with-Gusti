@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Language Classes with Gusti — Learn Indonesian in Bali</title>
+<meta name="description" content="Friendly, beginner-first Indonesian language classes for foreign tourists in Bali. In-person in Legian or online. Book via WhatsApp or email.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  /* =========================================================
+     EASY-EDIT ZONE #1 — COLORS
+     Change these hex values to re-theme the entire site.
+     ========================================================= */
+  :root{
+    --jade-950: #12251F;
+    --jade-900: #1B3A32;
+    --jade-800: #23493F;
+    --jade-700: #2F5F53;
+    --gold-500: #DDA23A;
+    --gold-400: #E7B65E;
+    --hibiscus-500: #D9637A;
+    --hibiscus-100: #F7DEE2;
+    --cream-100: #FBF6EA;
+    --cream-200: #F4EBD6;
+    --paper: #FFFDF7;
+    --ink: #1C2622;
+    --ink-soft: #4B5751;
+    --line: rgba(28,38,34,0.12);
+
+    --font-display: "Fraunces", ui-serif, Georgia, serif;
+    --font-body: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "Space Mono", ui-monospace, "Courier New", monospace;
+
+    --radius-lg: 22px;
+    --radius-md: 14px;
+    --radius-sm: 8px;
+    --container: 1160px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream-100);
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  h1,h2,h3,h4{
+    font-family:var(--font-display);
+    margin:0 0 0.4em 0;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    color:var(--jade-950);
+  }
+  p{margin:0 0 1em 0;}
+  .wrap{max-width:var(--container);margin:0 auto;padding:0 24px;}
+  section{padding:96px 0;}
+  @media (max-width:720px){ section{padding:64px 0;} }
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible{
+    outline:3px solid var(--gold-500);
+    outline-offset:3px;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- phrase tag / eyebrow (signature element) ---------- */
+  .phrase-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--jade-800);
+    background:var(--paper);
+    border:1px solid var(--line);
+    padding:7px 14px 7px 12px;
+    border-radius:999px;
+    margin-bottom:22px;
+  }
+  .phrase-tag .id{color:var(--gold-500);font-weight:700;}
+  .phrase-tag .en{color:var(--ink-soft);text-transform:none;letter-spacing:0;font-style:italic;}
+  .on-dark .phrase-tag{background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.18);color:var(--cream-100);}
+  .on-dark .phrase-tag .en{color:rgba(251,246,234,0.65);}
+
+  /* ---------- nav ---------- */
+  header.site-nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(251,246,234,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--container); margin:0 auto; padding:16px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:16px;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:var(--font-display); font-weight:600; font-size:19px;
+    color:var(--jade-950); text-decoration:none;
+  }
+  .brand .mark{
+    width:34px;height:34px;border-radius:50%;
+    background:var(--jade-900);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--gold-400); font-family:var(--font-mono); font-size:13px; font-weight:700;
+    flex:none;
+  }
+  nav.links{display:flex; gap:28px; align-items:center;}
+  nav.links a{
+    text-decoration:none; font-weight:600; font-size:14.5px; color:var(--ink-soft);
+    transition:color .15s ease;
+  }
+  nav.links a:hover{color:var(--jade-950);}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:var(--font-body); font-weight:700; font-size:14.5px;
+    padding:11px 20px; border-radius:999px; text-decoration:none;
+    border:1px solid transparent; cursor:pointer; white-space:nowrap;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--gold-500); color:var(--jade-950); box-shadow:0 6px 18px rgba(221,162,58,0.35);}
+  .btn-primary:hover{background:var(--gold-400);}
+  .btn-ghost{background:transparent; border-color:var(--line); color:var(--jade-950);}
+  .btn-ghost:hover{background:var(--paper);}
+  .btn-on-dark{background:transparent;border-color:rgba(255,255,255,0.35); color:var(--cream-100);}
+  .btn-on-dark:hover{background:rgba(255,255,255,0.08);}
+  .nav-cta{display:flex; align-items:center; gap:10px;}
+  .menu-toggle{display:none;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:
+      radial-gradient(1200px 600px at 85% -10%, rgba(221,162,58,0.18), transparent 60%),
+      linear-gradient(180deg, var(--jade-950), var(--jade-900) 55%, var(--jade-800));
+    color:var(--cream-100);
+    position:relative;
+    overflow:hidden;
+    padding:88px 0 0 0;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.05fr 0.95fr; gap:52px; align-items:center;
+  }
+  .hero h1{
+    color:var(--cream-100);
+    font-size:clamp(34px, 5vw, 58px);
+    line-height:1.05;
+    margin-bottom:20px;
+  }
+  .hero h1 em{ font-style:italic; color:var(--gold-400); }
+  .hero .lede{
+    font-size:18px; color:rgba(251,246,234,0.82); max-width:480px; margin-bottom:32px;
+  }
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:36px;}
+  .hero-meta{
+    display:flex; gap:28px; flex-wrap:wrap; padding-top:26px; border-top:1px solid rgba(255,255,255,0.14);
+  }
+  .hero-meta div{font-size:13.5px; color:rgba(251,246,234,0.72);}
+  .hero-meta strong{display:block; font-family:var(--font-display); font-size:22px; color:var(--cream-100); font-weight:600;}
+
+  .hero-visual{
+    position:relative;
+    aspect-ratio:4/5;
+    border-radius:var(--radius-lg);
+    overflow:hidden;
+    box-shadow:0 30px 60px rgba(0,0,0,0.35);
+    transform:rotate(1.2deg);
+  }
+  .hero-visual img{width:100%;height:100%;object-fit:cover;}
+  .hero-visual .tag-float{
+    position:absolute; left:18px; bottom:18px;
+    background:var(--paper); color:var(--jade-950);
+    padding:12px 16px; border-radius:var(--radius-md);
+    font-family:var(--font-mono); font-size:12px; letter-spacing:0.04em;
+    box-shadow:0 12px 24px rgba(0,0,0,0.25);
+    max-width:230px;
+    transform:rotate(-2deg);
+  }
+  .hero-visual .tag-float b{display:block; font-family:var(--font-display); font-size:15px; color:var(--gold-500); font-weight:600; text-transform:none; letter-spacing:0;}
+
+  .hero-wave{ height:64px; margin-top:70px; }
+  .hero-wave svg{display:block; width:100%; height:100%;}
+
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr; gap:36px;}
+    .hero-visual{max-width:420px; margin:0 auto;}
+  }
+
+  /* ---------- section headers ---------- */
+  .section-head{max-width:640px; margin-bottom:52px;}
+  .section-head.center{margin-left:auto; margin-right:auto; text-align:center;}
+  .section-head h2{font-size:clamp(28px, 3.4vw, 40px);}
+  .section-head p{color:var(--ink-soft); font-size:17px;}
+
+  /* ---------- about ---------- */
+  .about{background:var(--paper); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .about-grid{display:grid; grid-template-columns:0.85fr 1.15fr; gap:56px; align-items:start;}
+  .about-photo{
+    border-radius:var(--radius-lg);
+    overflow:hidden;
+    box-shadow:0 20px 40px rgba(28,38,34,0.12);
+  }
+  .about-photo img{aspect-ratio:4/5; object-fit:cover;}
+  .about-copy p{color:var(--ink-soft); font-size:17px;}
+  .about-list{list-style:none; margin:28px 0 0 0; padding:0; display:grid; gap:16px;}
+  .about-list li{
+    display:flex; gap:14px; align-items:flex-start;
+    font-size:15.5px; color:var(--ink);
+  }
+  .about-list .dot{
+    flex:none; width:26px; height:26px; border-radius:50%;
+    background:var(--hibiscus-100); color:var(--hibiscus-500);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-mono); font-weight:700; font-size:12px;
+    margin-top:2px;
+  }
+  @media (max-width:820px){ .about-grid{grid-template-columns:1fr;} .about-photo{max-width:360px;} }
+
+  /* ---------- how it works / cards ---------- */
+  .how{background:var(--cream-100);}
+  .card-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;}
+  .info-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+    padding:32px 26px;
+    position:relative;
+  }
+  .info-card .icon{
+    width:48px; height:48px; border-radius:14px;
+    background:var(--jade-900); color:var(--gold-400);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:20px; font-size:20px;
+  }
+  .info-card h3{font-size:20px; margin-bottom:10px;}
+  .info-card p{color:var(--ink-soft); font-size:15.5px; margin-bottom:0;}
+  @media (max-width:880px){ .card-grid{grid-template-columns:1fr;} }
+
+  /* ---------- gallery / "moments" ---------- */
+  .gallery{background:var(--jade-950); color:var(--cream-100); overflow:hidden;}
+  .gallery .section-head h2{color:var(--cream-100);}
+  .gallery .section-head p{color:rgba(251,246,234,0.75);}
+  .gallery-scroller{
+    display:flex; gap:20px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    padding:6px 24px 26px 24px;
+    margin:0 -24px;
+    scrollbar-width:thin;
+    scrollbar-color:var(--gold-500) transparent;
+  }
+  .gallery-scroller::-webkit-scrollbar{height:8px;}
+  .gallery-scroller::-webkit-scrollbar-thumb{background:var(--gold-500); border-radius:99px;}
+  .gallery-scroller::-webkit-scrollbar-track{background:rgba(255,255,255,0.08); border-radius:99px;}
+  .snap-card{
+    flex:none;
+    scroll-snap-align:start;
+    width:300px;
+    background:var(--paper);
+    color:var(--ink);
+    border-radius:var(--radius-md);
+    padding:14px 14px 18px 14px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.28);
+  }
+  .snap-card .photo{
+    border-radius:8px; overflow:hidden; aspect-ratio:4/5; margin-bottom:14px;
+    position:relative;
+  }
+  .snap-card .photo img{width:100%; height:100%; object-fit:cover;}
+  .snap-card .stitch{
+    border-top:1.5px dashed var(--line); margin:0 0 12px 0;
+  }
+  .snap-card p.caption{font-size:14.5px; color:var(--ink-soft); margin-bottom:6px;}
+  .snap-card .label{
+    font-family:var(--font-mono); font-size:11.5px; letter-spacing:0.05em;
+    color:var(--jade-800); text-transform:uppercase;
+  }
+  .gallery-controls{display:flex; justify-content:flex-end; gap:10px; margin-top:8px;}
+  .gallery-controls button{
+    width:42px;height:42px;border-radius:50%;
+    border:1px solid rgba(255,255,255,0.25);
+    background:transparent; color:var(--cream-100);
+    font-size:16px; cursor:pointer;
+    transition:background .15s ease;
+  }
+  .gallery-controls button:hover{background:rgba(255,255,255,0.12);}
+  .gallery-hint{font-size:13px; color:rgba(251,246,234,0.55); margin-top:-30px; margin-bottom:26px;}
+
+  /* ---------- location / contact ---------- */
+  .contact{background:var(--cream-200);}
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  .contact-card{
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-lg);
+    padding:34px;
+  }
+  .contact-card h3{font-size:19px; margin-bottom:14px;}
+  .contact-row{
+    display:flex; align-items:flex-start; gap:14px;
+    padding:14px 0; border-top:1px solid var(--line);
+  }
+  .contact-row:first-of-type{border-top:none;}
+  .contact-row .ic{
+    flex:none; width:38px; height:38px; border-radius:10px;
+    background:var(--jade-900); color:var(--gold-400);
+    display:flex; align-items:center; justify-content:center; font-size:16px;
+  }
+  .contact-row .label{font-size:12.5px; text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-soft); font-family:var(--font-mono); margin-bottom:3px;}
+  .contact-row .value{font-weight:700; font-size:15.5px;}
+  .contact-row a.value{text-decoration:none;}
+  .contact-row a.value:hover{color:var(--hibiscus-500);}
+  .map-embed{
+    border-radius:var(--radius-md); overflow:hidden; border:1px solid var(--line);
+    margin-top:18px; aspect-ratio:16/10;
+  }
+  .map-embed iframe{width:100%; height:100%; border:0;}
+  .online-note{
+    display:flex; gap:12px; align-items:flex-start;
+    background:var(--hibiscus-100); border-radius:var(--radius-md);
+    padding:16px 18px; margin-top:18px; font-size:14.5px; color:var(--jade-950);
+  }
+  @media (max-width:820px){ .contact-grid{grid-template-columns:1fr;} }
+
+  /* ---------- CTA band ---------- */
+  .cta-band{
+    background:linear-gradient(120deg, var(--jade-900), var(--jade-800));
+    color:var(--cream-100); text-align:center;
+    border-radius:var(--radius-lg);
+    margin:0 24px; padding:64px 32px;
+    position:relative; overflow:hidden;
+  }
+  .cta-band h2{color:var(--cream-100); font-size:clamp(26px,3.6vw,38px);}
+  .cta-band p{color:rgba(251,246,234,0.8); max-width:480px; margin:0 auto 30px auto;}
+  .cta-actions{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--jade-950); color:rgba(251,246,234,0.65); padding:56px 0 28px 0; margin-top:96px;}
+  .footer-grid{display:flex; justify-content:space-between; gap:32px; flex-wrap:wrap; padding-bottom:32px; border-bottom:1px solid rgba(255,255,255,0.1);}
+  .footer-brand{max-width:320px;}
+  .footer-brand .brand{color:var(--cream-100);}
+  .footer-brand p{color:rgba(251,246,234,0.6); font-size:14.5px; margin-top:14px;}
+  .footer-links{display:flex; gap:64px; flex-wrap:wrap;}
+  .footer-col h4{font-family:var(--font-mono); font-size:12px; text-transform:uppercase; letter-spacing:0.06em; color:rgba(251,246,234,0.5); font-weight:700; margin-bottom:14px;}
+  .footer-col a{display:block; text-decoration:none; color:rgba(251,246,234,0.85); font-size:14.5px; margin-bottom:10px;}
+  .footer-col a:hover{color:var(--gold-400);}
+  .footer-bottom{padding-top:22px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:13px;}
+
+  /* mobile nav */
+  @media (max-width:780px){
+    nav.links{
+      position:fixed; inset:64px 16px auto 16px;
+      background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-md);
+      flex-direction:column; align-items:flex-start; padding:18px 20px;
+      box-shadow:0 20px 40px rgba(0,0,0,0.15);
+      display:none;
+    }
+    nav.links.open{display:flex;}
+    nav.links a{padding:8px 0; width:100%;}
+    .menu-toggle{
+      display:flex; align-items:center; justify-content:center;
+      width:42px; height:42px; border-radius:10px;
+      border:1px solid var(--line); background:var(--paper); cursor:pointer;
+    }
+    .nav-cta .btn-ghost{display:none;}
+  }
+</style>
+</head>
+<body>
+
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <span class="mark">LG</span>
+      Language Classes<br style="display:none"> with Gusti
+    </a>
+    <nav class="links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#how">How it works</a>
+      <a href="#moments">Class moments</a>
+      <a href="#contact">Location &amp; contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-ghost">Contact</a>
+      <a href="https://wa.me/628161873816?text=Hi%20Gusti%2C%20I%27d%20like%20to%20join%20an%20Indonesian%20class!" class="btn btn-primary" target="_blank" rel="noopener">WhatsApp Gusti</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="on-dark">
+      <div class="phrase-tag"><span class="id">Selamat datang</span><span class="en">— welcome</span></div>
+      <h1>Learn to speak <em>real</em> Indonesian, right here in Bali.</h1>
+      <p class="lede">Friendly, patient, beginner-first classes with Gusti — for travellers, expats and anyone who wants more than "terima kasih" and "apa kabar." In person in Legian, or online from wherever you are.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/628161873816?text=Hi%20Gusti%2C%20I%27d%20like%20to%20join%20an%20Indonesian%20class!" class="btn btn-primary" target="_blank" rel="noopener">💬 Chat on WhatsApp</a>
+        <a href="mailto:gustiexel@hotmail.com" class="btn btn-on-dark">✉️ Email Gusti</a>
+      </div>
+      <div class="hero-meta">
+        <div><strong>1:1 &amp; small group</strong>Class formats</div>
+        <div><strong>In-person or online</strong>Join from anywhere</div>
+        <div><strong>Beginner-first</strong>No experience needed</div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="assets/session-06.jpg" alt="Gusti leading a small group Indonesian class around a wooden table" loading="eager">
+      <div class="tag-float"><b>Belajar bareng</b>learning together, not out of a textbook</div>
+    </div>
+  </div>
+  <div class="hero-wave">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C240,90 480,0 720,30 C960,60 1200,10 1440,40 L1440,80 L0,80 Z" fill="#FBF6EA"></path></svg>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-photo">
+      <img src="assets/session-03.jpg" alt="Gusti sitting with a student at a cafe table, going through lesson notes" loading="lazy">
+    </div>
+    <div class="about-copy">
+      <div class="phrase-tag"><span class="id">Kenalan dulu</span><span class="en">— let's meet first</span></div>
+      <h2>Hi, I'm Gusti — your teacher, not a textbook.</h2>
+      <p>I've spent years teaching Bahasa Indonesia to travellers who want to actually connect — order food without pointing, chat with a driver, understand what's on the offering baskets outside every shop. Every course is planned by hand, session by session, around who's in the room.</p>
+      <p>Classes are small on purpose. That means real conversation from lesson one, corrections that make sense for how <em>you</em> speak, and a pace that never leaves beginners behind.</p>
+      <ul class="about-list">
+        <li><span class="dot">01</span> Genuinely built for absolute beginners — first class assumes zero prior Indonesian.</li>
+        <li><span class="dot">02</span> Small groups (max 4–5) or fully private 1:1 sessions, your choice.</li>
+        <li><span class="dot">03</span> Practical, spoken-first Bahasa — the kind locals actually use in Bali.</li>
+        <li><span class="dot">04</span> Flexible scheduling around your holiday or your week.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="section-head center">
+      <div class="phrase-tag" style="margin-left:auto;margin-right:auto;"><span class="id">Cara belajarnya</span><span class="en">— how it works</span></div>
+      <h2>Simple to join, easy to stick with</h2>
+      <p>No placement tests, no long contracts — just tell Gusti what you're hoping to get out of it.</p>
+    </div>
+    <div class="card-grid">
+      <div class="info-card">
+        <div class="icon">🌱</div>
+        <h3>Beginner friendly</h3>
+        <p>Lessons start from zero and build slowly. If you've never spoken a word of Indonesian, you're exactly who this is for.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">🌏</div>
+        <h3>In-person or online</h3>
+        <p>Meet Gusti in Legian for a face-to-face class, or join a video call from your villa, hotel, or back home once you've left Bali.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">🗓️</div>
+        <h3>Flexible scheduling</h3>
+        <p>Single sessions, short courses, or ongoing weekly practice — classes are scheduled around your trip, not the other way around.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLASS MOMENTS / TESTIMONIAL-STYLE GALLERY -->
+<section class="gallery" id="moments">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="phrase-tag"><span class="id">Cerita dari kelas</span><span class="en">— stories from class</span></div>
+      <h2>A peek into real sessions</h2>
+      <p>No stock photos — these are actual planning sessions and classes with students, scroll sideways to see more.</p>
+    </div>
+  </div>
+
+  <div class="gallery-scroller" id="galleryScroller">
+    <!-- Each .snap-card is one photo. Duplicate this block and swap the
+         image path + caption to add more, or delete a block to remove one. -->
+    <article class="snap-card">
+      <div class="photo"><img src="assets/session-01.jpg" alt="Gusti presenting to a small group of students in a decorated Balinese-style venue" loading="lazy"></div>
+      <div class="stitch"></div>
+      <p class="caption">Gusti walking a small group through a session, working straight off her own handwritten notes.</p>
+      <span class="label">In-person class</span>
+    </article>
+    <article class="snap-card">
+      <div class="photo"><img src="assets/session-02.jpg" alt="Two students smiling together at an outdoor table under woven umbrellas" loading="lazy"></div>
+      <div class="stitch"></div>
+      <p class="caption">A relaxed check-in between lessons — plenty of laughing, not just grammar drills.</p>
+      <span class="label">Between sessions</span>
+    </article>
+    <article class="snap-card">
+      <div class="photo"><img src="assets/session-03.jpg" alt="Gusti and a student reviewing lesson notes together at a cafe table" loading="lazy"></div>
+      <div class="stitch"></div>
+      <p class="caption">1:1 time with a student, going line by line through vocabulary from the week.</p>
+      <span class="label">1:1 class</span>
+    </article>
+    <article class="snap-card">
+      <div class="photo"><img src="assets/session-04.jpg" alt="Gusti planning a course with three students around a table under a bamboo roof" loading="lazy"></div>
+      <div class="stitch"></div>
+      <p class="caption">Curriculum planning for an upcoming course — every syllabus is built by hand for the group.</p>
+      <span class="label">Course planning</span>
+    </article>
+    <article class="snap-card">
+      <div class="photo"><img src="assets/session-05.jpg" alt="Students writing notes at a table with a whiteboard of lesson topics in the background" loading="lazy"></div>
+      <div class="stitch"></div>
+      <p class="caption">Notes going down in real time — the whiteboard behind them maps out that week's topics.</p>
+      <span class="label">Group class</span>
+    </article>
+    <article class="snap-card">
+      <div class="photo"><img src="assets/session-06.jpg" alt="A group of students sitting around a long wooden table taking notes together" loading="lazy"></div>
+      <div class="stitch"></div>
+      <p class="caption">A full table of learners, all at different stages, all working from the same friendly pace.</p>
+      <span class="label">Group class</span>
+    </article>
+  </div>
+
+  <div class="wrap">
+    <p class="gallery-hint">← scroll or drag sideways to see more →</p>
+    <div class="gallery-controls">
+      <button id="scrollLeft" aria-label="Scroll gallery left">←</button>
+      <button id="scrollRight" aria-label="Scroll gallery right">→</button>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION & CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="phrase-tag"><span class="id">Ayo gabung</span><span class="en">— let's get you started</span></div>
+      <h2>Location &amp; how to join</h2>
+      <p>Reach out on WhatsApp or email to check availability and find a class time that works for you.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Get in touch</h3>
+        <div class="contact-row">
+          <div class="ic">💬</div>
+          <div>
+            <div class="label">WhatsApp</div>
+            <a class="value" href="https://wa.me/628161873816?text=Hi%20Gusti%2C%20I%27d%20like%20to%20join%20an%20Indonesian%20class!" target="_blank" rel="noopener">+62 816-1873-816</a>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="ic">✉️</div>
+          <div>
+            <div class="label">Email</div>
+            <a class="value" href="mailto:gustiexel@hotmail.com">gustiexel@hotmail.com</a>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="ic">📍</div>
+          <div>
+            <div class="label">Address</div>
+            <div class="value">Jl. Sri Rejeki – Nakula Barat, Mbok Limbok, Kuta Legian, Bali</div>
+          </div>
+        </div>
+        <div class="online-note">
+          🌐 <div><strong>Not in Bali (yet), or prefer to stay in?</strong> Online classes run over video call — just mention it when you message Gusti.</div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h3>Find us in Legian</h3>
+        <p style="color:var(--ink-soft); font-size:14.5px; margin-bottom:0;">Located just off Jl. Nakula Barat in the Mbok Limbok area of Kuta Legian — easy to reach from most stays in South Bali.</p>
+        <div class="map-embed">
+          <iframe
+            src="https://www.google.com/maps?q=Jl.+Sri+Rejeki+Nakula+Barat+Kuta+Legian+Bali&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Map showing the location of Language Classes with Gusti in Kuta Legian, Bali">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section>
+  <div class="cta-band">
+    <div class="phrase-tag" style="margin-left:auto;margin-right:auto;"><span class="id">Sampai jumpa</span><span class="en">— see you soon</span></div>
+    <h2>Your first class is one message away.</h2>
+    <p>No forms, no waiting — just message Gusti directly and tell her a bit about yourself.</p>
+    <div class="cta-actions">
+      <a href="https://wa.me/628161873816?text=Hi%20Gusti%2C%20I%27d%20like%20to%20join%20an%20Indonesian%20class!" class="btn btn-primary" target="_blank" rel="noopener">💬 Message on WhatsApp</a>
+      <a href="mailto:gustiexel@hotmail.com" class="btn btn-on-dark">✉️ Send an email</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="brand"><span class="mark">LG</span>Language Classes with Gusti</a>
+        <p>Friendly, beginner-first Bahasa Indonesia classes for foreign tourists — in Legian, Bali, and online.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Site</h4>
+          <a href="#about">About Gusti</a>
+          <a href="#how">How it works</a>
+          <a href="#moments">Class moments</a>
+          <a href="#contact">Location &amp; contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="https://wa.me/628161873816" target="_blank" rel="noopener">+62 816-1873-816</a>
+          <a href="mailto:gustiexel@hotmail.com">gustiexel@hotmail.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Language Classes with Gusti. All rights reserved.</span>
+      <span>Kuta Legian, Bali, Indonesia</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* =========================================================
+     EASY-EDIT ZONE #3 — QUICK-CHANGE CONFIG
+     If you ever change your phone number or email, update both
+     lines below AND the matching href="mailto:..." / wa.me links
+     above (search-and-replace the old value works well).
+     ========================================================= */
+  const CONTACT = {
+    whatsappNumber: "628161873816", // no + or dashes
+    email: "gustiexel@hotmail.com"
+  };
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  // Gallery arrow controls
+  const scroller = document.getElementById('galleryScroller');
+  const leftBtn = document.getElementById('scrollLeft');
+  const rightBtn = document.getElementById('scrollRight');
+  function cardStep(){
+    const card = scroller.querySelector('.snap-card');
+    return card ? card.getBoundingClientRect().width + 20 : 320;
+  }
+  if (leftBtn && rightBtn && scroller) {
+    leftBtn.addEventListener('click', () => scroller.scrollBy({left: -cardStep(), behavior:'smooth'}));
+    rightBtn.addEventListener('click', () => scroller.scrollBy({left: cardStep(), behavior:'smooth'}));
+  }
+</script>
+</body>
+</html>
